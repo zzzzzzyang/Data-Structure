@@ -1,4 +1,4 @@
-package LinkedList;
+package Set;
 
 public class LinkedList<E> {
 
@@ -184,6 +184,7 @@ public class LinkedList<E> {
         return delete(size-1);
     }
 
+
     // 删除值为E的节点 迭代
     public void removeElement(E e){
         if (size == 0)
@@ -195,6 +196,7 @@ public class LinkedList<E> {
                 Node u = p;
                 pre.next = p.next;
                 u.next = null;
+                size --;
                 break;
             }
             pre = p;
@@ -202,10 +204,12 @@ public class LinkedList<E> {
         }
     }
 
+    // 删除值为E的节点 递归
     public void removeElementR(E e){
         if (size == 0)
             throw new IllegalArgumentException("empty!");
         head.next = removeElementR(head.next, e);
+        size --;
     }
 
     private Node removeElementR(Node head, E e){
@@ -233,5 +237,15 @@ public class LinkedList<E> {
         }
     }
 
-
+    public static void main(String[] args) {
+        LinkedList<Integer> linkedList = new LinkedList<Integer>();
+        for (int i = 0; i < 5; i++) {
+            linkedList.add(i);
+        }
+        for (int i = 0; i < 5; i++) {
+            linkedList.removeElement(i);
+        }
+        System.out.println(linkedList.getSize());
+        linkedList.traverse();
+    }
 }

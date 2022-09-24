@@ -5,11 +5,11 @@ public class Main {
         LinkedList linkedList = new LinkedList<Integer>();
 
         for (int i = 0; i < 5; i++) {
-            linkedList.addFirst(i);
+            linkedList.add_(i, i);
         }
         System.out.println(linkedList);
 
-        linkedList.reverse();
+        linkedList.removeElementR(5);
         System.out.println(linkedList);
     }
 }
